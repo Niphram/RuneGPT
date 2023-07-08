@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" class="mx-auto max-w-full rounded-lg border border-neutral svelte-1i0i7c4" viewBox="-0.65 -0.65 1.3 1.3" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    svg { stroke: #000000; }
+    @media (prefers-color-scheme: dark) {
+      svg { stroke: #ffffff; }
+    }
+  </style>
+  <g transform="translate(-0.4330127018922193 -0.5)">
+    <path class="lines" d="M0 0.25 L0 0.75 M0 0.25 L0.4330127018922193 0.5 M0.8660254037844386 0.75 L0.4330127018922193 1 M0 0.75 L0.4330127018922193 1 M0.8660254037844386 0.25 L0.4330127018922193 0.5" stroke-linecap="round" stroke-width="0.15"/>
+    <path class="dots" d="M0.4330127018922193 0 h0.00001" stroke-linecap="round" stroke-width="0.25"/>
+  </g>
+</svg>

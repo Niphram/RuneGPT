@@ -1,0 +1,15 @@
+{
+	"name": "runic [Alpine]",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss",
+				"svelte.svelte-vscode"
+			]
+		}
+	}
+}
