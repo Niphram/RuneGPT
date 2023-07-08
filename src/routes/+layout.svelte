@@ -8,7 +8,7 @@
 
     const grid = createTriGrid(3, 3);
 
-    let seed = 0;
+    let seed: unknown = "RuneGPT";
 </script>
 
 <div class="navbar sticky top-0 z-50 bg-base-300">
@@ -23,7 +23,7 @@
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <g>
-                    <Rune {grid} seed={seed + 1} />
+                    <Rune {grid} {seed} pointDensity={0.85} lineDensity={0.5} />
                 </g>
             </svg>
             <span class="text-xl normal-case">RuneGPT</span>

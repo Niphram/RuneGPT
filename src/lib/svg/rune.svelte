@@ -8,7 +8,7 @@
     export let grid: Grid;
     export let seed: unknown;
 
-    export let pointDensity = 0.75;
+    export let pointDensity = 0.85;
     export let lineDensity = 0.5;
 
     function generateFinalGrid(
