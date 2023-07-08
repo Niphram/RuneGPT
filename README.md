@@ -2,7 +2,7 @@
 
 Small website to generate geometric runes and rune-circles based on text.
 
-Check it out here: https://github.com/Niphram/RuneGPT
+Check it out here: https://niphram.github.io/RuneGPT/
 
 ## Why?
 
