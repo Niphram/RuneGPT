@@ -84,7 +84,7 @@ each;line;contains;input;seperated;by;semicolons`;
         </style>
         <g transform="scale({scale})">
             {#if grid}
-                {#each circles as circle, reverseIdx}
+                {#each circles as circle, reverseIdx (circles.length - reverseIdx)}
                     {@const idx = circles.length - 1 - reverseIdx}
                     <Circle
                         grid={grid.grid}

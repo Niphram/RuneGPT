@@ -4,6 +4,7 @@
     import Alea from "alea";
 
     import type { Grid } from "$lib/grid/grid";
+    import { draw, scale } from "svelte/transition";
 
     export let grid: Grid;
     export let seed: unknown;
@@ -63,17 +64,25 @@
     $: offset = grid.bounds.center();
 </script>
 
-<g transform="translate({-offset.x} {-offset.y})">
-    <path
-        class="lines"
-        d={linesPath}
-        stroke-linecap="round"
-        stroke-width="0.075"
-    />
-    <path
-        class="dots"
-        d={dotsPath}
-        stroke-linecap="round"
-        stroke-width="0.15"
-    />
-</g>
+{#key grid}
+    <g transition:scale={{ duration: 500 }}>
+        <g transform="translate({-offset.x} {-offset.y})">
+            {#key seed}
+                <path
+                    class="lines"
+                    d={linesPath}
+                    stroke-linecap="round"
+                    stroke-width="0.075"
+                    transition:draw={{ duration: 250 }}
+                />
+                <path
+                    class="dots"
+                    d={dotsPath}
+                    stroke-linecap="round"
+                    stroke-width="0.15"
+                    transition:draw={{ duration: 250 }}
+                />
+            {/key}
+        </g>
+    </g>
+{/key}
