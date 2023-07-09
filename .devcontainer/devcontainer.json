@@ -1,5 +1,5 @@
 {
-	"name": "runic [Alpine]",
+	"name": "RuneGPT [Alpine]",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
