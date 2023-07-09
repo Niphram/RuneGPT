@@ -24,7 +24,7 @@
     }
 </script>
 
-<g transform={`rotate(${rotation})`}>
+<g transform="rotate({rotation})">
     {#if showCircle}
         <circle cx="0" cy="0" r={diameter} fill="none" stroke-width="0.075" />
     {/if}
@@ -38,11 +38,8 @@
     {/if}
 
     {#each runes as rune, i}
-        <g
-            transform={`rotate(${
-                (i * 360) / runes.length
-            }) translate(0 ${diameter})`}
-        >
+        {@const rotation = (i * 360) / runes.length}
+        <g transform="rotate({rotation}) translate(0 {diameter})">
             <circle cx="0" cy="0" r="0.75" stroke-width="0.075" />
             <Rune {...rune} {grid} />
         </g>

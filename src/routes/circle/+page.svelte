@@ -82,7 +82,7 @@ each;line;contains;input;seperated;by;semicolons`;
                 fill: white;
             }
         </style>
-        <g transform={`scale(${scale})`}>
+        <g transform="scale({scale})">
             {#if grid}
                 {#each circles as circle, reverseIdx}
                     {@const idx = circles.length - 1 - reverseIdx}

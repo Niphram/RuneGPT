@@ -63,7 +63,7 @@
     $: offset = grid.bounds.center();
 </script>
 
-<g transform={`translate(${-offset.x} ${-offset.y})`}>
+<g transform="translate({-offset.x} {-offset.y})">
     <path
         class="lines"
         d={linesPath}

@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css";
+    import { base } from "$app/paths";
 
-    import Link from "$lib/link.svelte";
     import Rune from "$lib/svg/rune.svelte";
 
     import { createTriGrid } from "$lib/grid/triangleGrid";
@@ -31,8 +31,8 @@
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-            <li><Link to="/">Rune Generator</Link></li>
-            <li><Link to="/circle">Circle Generator</Link></li>
+            <li><a href="{base}/">Rune Generator</a></li>
+            <li><a href="{base}/circle">Circle Generator</a></li>
         </ul>
     </div>
 </div>
@@ -46,8 +46,10 @@
         <p>
             Made with ❤ by <a
                 class="link"
-                href="https://github.com/Niphram/RuneGPT">Niphram</a
+                href="https://github.com/Niphram/RuneGPT"
             >
+                Niphram
+            </a>
         </p>
     </div>
 </footer>
