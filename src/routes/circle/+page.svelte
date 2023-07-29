@@ -6,17 +6,14 @@
 
     import type { Grid } from "$lib/grid/grid";
     import Range from "$lib/input/range.svelte";
+    import { t } from "$lib/locales";
 
-    let text = `RuneGPT
-you;can;generate
-circles;by;writing;here
-each;line;is;another;circle
-each;line;contains;input;seperated;by;semicolons`;
+    let text = "";
 
     let pointDensity = 0.85;
     let lineDensity = 0.5;
 
-    $: circles = text
+    $: circles = (text || $t("input.seedCircle.placeholder"))
         .split("\n")
         .reverse()
         .map((line) =>
@@ -30,18 +27,18 @@ each;line;contains;input;seperated;by;semicolons`;
 
     let svgElement: SVGElement;
 
-    let grid: { label: string; grid: Grid };
+    let grid: Grid;
 </script>
 
 <div class="mb-4 grid gap-4">
     <div class="form-control w-full">
         <label for="input" class="label">
-            <span class="label-text">Input</span>
+            <span class="label-text">{$t("input.seedCircle.label")}</span>
         </label>
         <textarea
             name="input"
             class="textarea-bordered textarea block w-full rounded-lg"
-            placeholder="Input"
+            placeholder={$t("input.seedCircle.placeholder")}
             bind:value={text}
             rows="6"
         />
@@ -51,17 +48,19 @@ each;line;contains;input;seperated;by;semicolons`;
 
     <div class="collapse-arrow collapse rounded-lg border-base-300 bg-base-200">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">Advanced Settings</div>
+        <div class="collapse-title text-xl font-medium">
+            {$t("input.advanced")}
+        </div>
         <div class="collapse-content">
             <Range
-                label="Point%"
+                label={$t("input.pointDensity.label")}
                 min={0}
                 max={1}
                 step={0.01}
                 bind:value={pointDensity}
             />
             <Range
-                label="Line%"
+                label={$t("input.lineDensity.label")}
                 min={0}
                 max={1}
                 step={0.01}
@@ -87,7 +86,7 @@ each;line;contains;input;seperated;by;semicolons`;
                 {#each circles as circle, reverseIdx (circles.length - reverseIdx)}
                     {@const idx = circles.length - 1 - reverseIdx}
                     <Circle
-                        grid={grid.grid}
+                        {grid}
                         rotation={(idx % 2) * 180}
                         showCircle
                         connectRunes
@@ -106,7 +105,7 @@ each;line;contains;input;seperated;by;semicolons`;
     <button
         class="btn-primary btn w-full rounded-lg"
         on:click={() => downloadSVG(svgElement, "circle.svg")}
-        >Download SVG</button
+        >{$t("downloadSvg")}</button
     >
 </div>
 

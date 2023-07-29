@@ -2,6 +2,8 @@
     import "../app.css";
     import { base } from "$app/paths";
 
+    import { locales, locale, t } from "$lib/locales";
+
     import Rune from "$lib/svg/rune.svelte";
 
     import { createTriGrid } from "$lib/grid/triangleGrid";
@@ -11,12 +13,9 @@
     let seed: unknown = "RuneGPT";
 </script>
 
-<div class="navbar sticky top-0 z-50 bg-base-300">
+<div class="navbar sticky top-0 z-50 bg-base-300 px-4">
     <div class="flex-1">
-        <button
-            class="btn-ghost btn mx-2"
-            on:click={() => (seed = Math.random())}
-        >
+        <button class="btn-ghost btn" on:click={() => (seed = Math.random())}>
             <svg
                 class="h-6 w-6"
                 viewBox="-0.6 -0.6 1.2 1.2"
@@ -31,9 +30,15 @@
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-            <li><a href="{base}/">Rune Generator</a></li>
-            <li><a href="{base}/circle">Circle Generator</a></li>
+            <li><a href="{base}/">{$t("header.runeGenerator")}</a></li>
+            <li><a href="{base}/circle">{$t("header.circleGenerator")}</a></li>
         </ul>
+
+        <select class="select select-sm" bind:value={$locale}>
+            {#each locales as { key, flag } (key)}
+                <option selected={key === $locale} value={key}>{flag}</option>
+            {/each}
+        </select>
     </div>
 </div>
 
@@ -44,12 +49,11 @@
 <footer class="footer footer-center bg-base-300 p-4 text-base-content">
     <div>
         <p>
-            Made with ❤ by <a
-                class="link"
-                href="https://github.com/Niphram/RuneGPT"
-            >
+            {$t("footer.author.pre")}
+            <a class="link" href="https://github.com/Niphram/RuneGPT">
                 Niphram
             </a>
+            {$t("footer.author.post")}
         </p>
     </div>
 </footer>

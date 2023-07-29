@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { t } from "$lib/locales";
+
     import GridSelector from "$lib/grid-selector.svelte";
     import Rune from "$lib/svg/rune.svelte";
 
@@ -12,7 +14,7 @@
     let pointDensity = 0.85;
     let lineDensity = 0.5;
 
-    let grid: { label: string; grid: Grid };
+    let grid: Grid;
 
     let svgElement: SVGElement;
 </script>
@@ -20,13 +22,13 @@
 <div class="mb-4 grid gap-4">
     <div class="form-control w-full">
         <label for="input" class="label">
-            <span class="label-text">Input</span>
+            <span class="label-text">{$t("input.seed.label")}</span>
         </label>
         <input
             name="input"
             bind:value={seed}
             type="text"
-            placeholder="Input"
+            placeholder={$t("input.seed.placeholder")}
             class="input-bordered input w-full rounded-lg"
         />
     </div>
@@ -35,17 +37,19 @@
 
     <div class="collapse-arrow collapse rounded-lg border-base-300 bg-base-200">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">Advanced Settings</div>
+        <div class="collapse-title text-xl font-medium">
+            {$t("input.advanced")}
+        </div>
         <div class="collapse-content">
             <Range
-                label="Point%"
+                label={$t("input.pointDensity.label")}
                 min={0}
                 max={1}
                 step={0.01}
                 bind:value={pointDensity}
             />
             <Range
-                label="Line%"
+                label={$t("input.lineDensity.label")}
                 min={0}
                 max={1}
                 step={0.01}
@@ -67,14 +71,14 @@
             }
         </style>
         {#if grid}
-            <Rune grid={grid.grid} {seed} {pointDensity} {lineDensity} />
+            <Rune {grid} {seed} {pointDensity} {lineDensity} />
         {/if}
     </svg>
 
     <button
         class="btn-primary btn w-full rounded-lg"
         on:click={() => downloadSVG(svgElement, `${seed}.svg`)}
-        >Download SVG</button
+        >{$t("downloadSvg")}</button
     >
 </div>
 
