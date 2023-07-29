@@ -1,8 +1,14 @@
+<script context="module">
+    import { moosmannStoreInit } from "$lib/locales";
+
+    export const { t, locale } = await moosmannStoreInit;
+</script>
+
 <script lang="ts">
     import "../app.css";
     import { base } from "$app/paths";
 
-    import { locales, locale, t } from "$lib/locales";
+    import { locales } from "$lib/locales";
 
     import Rune from "$lib/svg/rune.svelte";
 

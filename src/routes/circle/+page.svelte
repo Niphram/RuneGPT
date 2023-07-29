@@ -6,7 +6,7 @@
 
     import type { Grid } from "$lib/grid/grid";
     import Range from "$lib/input/range.svelte";
-    import { t } from "$lib/locales";
+    import { t } from "../+layout.svelte";
 
     let text = "";
 

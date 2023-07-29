@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { t } from "$lib/locales";
+    import { t } from "./+layout.svelte";
 
     import GridSelector from "$lib/grid-selector.svelte";
     import Rune from "$lib/svg/rune.svelte";

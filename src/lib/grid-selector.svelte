@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { t } from "$lib/locales";
+    import { t } from "../routes/+layout.svelte";
 
     import Rune from "./svg/rune.svelte";
 
