@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { t } from "$lib/locales";
+
     import GridSelector from "$lib/grid-selector.svelte";
     import Circle from "$lib/svg/circle.svelte";
 
@@ -6,7 +8,6 @@
 
     import type { Grid } from "$lib/grid/grid";
     import Range from "$lib/input/range.svelte";
-    import { t } from "../+layout.svelte";
 
     let text = "";
 
